@@ -2,7 +2,7 @@ const startButton = document.getElementById('start-btn');
 const nextButton = document.getElementById('next-btn');
 const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
-const answerbuttonsElement = document.getElementById('answer-buttons')
+const answerButtonsElement = document.getElementById('answer-buttons')
 
 let shuffledQuestions, currentQuestionIndex
 
@@ -36,7 +36,7 @@ function showQuestion(question) {
       button.dataset.correct = answer.correct
     }
     button.addEventListener('click', selectAnswer)
-    answerbuttonsElement.appendChild(button)
+    answerButtonsElement.appendChild(button)
   })
 }
 function resetState() {
@@ -51,14 +51,15 @@ function selectAnswer(e) {
   const selectedButton = e.target
   const correct = selectedButton.dataset.correct
   setStatusClass(document.body, correct)
-  Array.from(answerButtonElement.children).forEach(button => {
+  Array.from(answerButtonsElement.children).forEach(button => {
     setStatusClass(button, button.dataset.correct)
   })
-  if (shuffledQuestions.length > currentQuestionIndex + 1){ nextButton.classList.remove('hide')
-} else {
-  startButton.innerText = "Restart"
-  startButton.classList.remove('hide')
-}
+  if (shuffledQuestions.length > currentQuestionIndex + 1) {
+    nextButton.classList.remove('hide')
+  } else {
+    startButton.innerText = "Restart"
+    startButton.classList.remove('hide')
+  }
 }
 
 nextButton.classList.remove('hide')
@@ -79,10 +80,41 @@ function clearStatusClass(element) {
 
 const questions = [
   {
-    question: 'What is 2 + 2?',
+    question: 'Which of the following operator returns the remainder left over when one operand is divided by a second operand?',
     answers: [
-      { text: 4, correct: true },
-      { text: 5, correct: false }
+      { text: '%', correct: true },
+      { text: '/', correct: false },
+      { text: '+', correct: false },
+      { text: '--', correct: false }
     ]
-  }
+  },
+  {
+    question: 'Which of the following keywords will you use to declare a numeric variable in JavaScript?',
+    answers: [
+      { text: 'float', correct: false },
+      { text: 'int', correct: false },
+      { text: 'var', correct: true },
+      { text: 'double', correct: false }
+    ]
+  },
+  {
+    question: 'How do you get a size of an array?',
+    answers: [
+      { text: 'arr.length', correct: true },
+      { text: 'sizeOf(arr)', correct: false },
+      { text: 'arr.size()', correct: false },
+      { text: 'arr.size', correct: false }
+  
+    ]
+  },
+  {
+    question: 'What does the function return if it does not have a return statement?',
+    answers: [
+      { text: 'this', correct: false },
+      { text: 'null', correct: false },
+      { text: 'throws an exception', correct: false },
+      { text: 'undefined', correct: true }
+    ]
+  },
 ]
+
