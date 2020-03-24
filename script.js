@@ -4,6 +4,26 @@ const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
 
+var timeClock = document.querySelector(".timer");
+var secondsLeft = 5;
+
+function setTime() {
+  var timerInterval = setInterval(function() {
+    secondsLeft--;
+    timeClock.textContent = secondsLeft + " seconds left.";
+
+    if(secondsLeft === 0) {
+      clearInterval(timerInterval);
+      sendMessage();
+    }
+
+  }, 1000);
+}
+
+setTime();
+
+
+
 let shuffledQuestions, currentQuestionIndex
 
 startButton.addEventListener('click', startGame)
