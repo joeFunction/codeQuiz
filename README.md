@@ -36,7 +36,7 @@ THEN I can save my initials and score
 ![code quiz](./Assets/04-web-apis-homework-demo.gif)
 
 ### Site Link
-  * [Code Quiz](#https://joefunction.github.io/codeQuiz/)
+  * [Code Quiz](https://joefunction.github.io/codeQuiz/)
 
  ### Contribution
  
